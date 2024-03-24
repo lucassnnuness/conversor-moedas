@@ -34,10 +34,20 @@ function convertValues() {
     console.log(inputconvertedValue)
 }
 
-convertButton.addEventListener("click", convertValues)
+currencySelect.addEventListener("change", changeCurrency)
 
-    function changeCurrency(){
-        console.log("trocou de moeda")
+function changeCurrency() {
+    const currencyName = document.getElementById(".currency-name")
+
+    if (currencySelect.value == "dolar") {
+        currencyName.innerHTML == "dolar americano"
     }
 
-currencySelect.addEventListener("change, changeCurrency")
+   if (currencySelect.value == "euro"){
+    currencyName.innerHTML == "Euro"
+   }
+}
+
+convertButton.addEventListener("click", convertValues)
+
+currencySelect.addEventListener("change", changeCurrency)
