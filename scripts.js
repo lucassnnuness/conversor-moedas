@@ -28,26 +28,17 @@ function convertValues() {
     inputCurrencyValuetoConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL"
-
     }).format(inputCurrencyValue)
 
     console.log(inputconvertedValue)
 }
 
-currencySelect.addEventListener("change", changeCurrency)
+currencySelect.addEventListener("currency-name")
+console.log("trocou de moeda")
 
-function changeCurrency() {
-    const currencyName = document.getElementById(".currency-name")
+    function changeCurrency () {
+        const currencyName = document.getElementById("currency-Name")
 
-    if (currencySelect.value == "dolar") {
-        currencyName.innerHTML == "dolar americano"
     }
 
-   if (currencySelect.value == "euro"){
-    currencyName.innerHTML == "Euro"
-   }
-}
-
 convertButton.addEventListener("click", convertValues)
-
-currencySelect.addEventListener("change", changeCurrency)
