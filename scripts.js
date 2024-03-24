@@ -1,37 +1,43 @@
 const convertButton = document.querySelector(".convert-button")
 const currencySelect = document.querySelector(".currency-select")
 
-
 function convertValues() {
     const inputCurrencyValue = document.querySelector(".input-currency").value
     const inputCurrencyValuetoConvert = document.querySelector(".currency-value-to-convert") // Valor em Real
     const inputCurrencyValueConverted = document.querySelector(".currency-value-converted") // Outras moedas
-    
 
     console.log(currencySelect.value)
-    const dolarToday = 4.95
-    const eurotoday = 5.37
+    const dolarToday = 5.0
+    const euroToday = 5.43
 
-    const inputconvertedValue = inputCurrencyValue / dolarToday
-    
+    if (currencySelect.value == "dolar") {
+        inputCurrencyValueConverted.innerHTML = new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD"
+        }).format(inputCurrencyValue / dolarToday)
+    }
+
+    if (currencySelect.value == "euro") {
+        inputCurrencyValueConverted.innerHTML = Intl.NumberFormat("de-DE", {
+            style: "currency",
+            currency: "EUR"
+        }).format(inputCurrencyValue / euroToday)
+    }
+
+
     inputCurrencyValuetoConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL"
-    
+
     }).format(inputCurrencyValue)
 
-    
-    inputCurrencyValueConverted.innerHTML = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency:"USD"
-    }).format(inputconvertedValue)
-
-
     console.log(inputconvertedValue)
-
-
-
 }
 
-
 convertButton.addEventListener("click", convertValues)
+
+    function changeCurrency(){
+        console.log("trocou de moeda")
+    }
+
+currencySelect.addEventListener("change, changeCurrency")
