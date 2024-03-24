@@ -36,8 +36,16 @@ function convertValues() {
 
 convertButton.addEventListener("click", convertValues)
 
-    function changeCurrency(){
-        console.log("trocou de moeda")
+function changeCurrency() {
+    const currencyName = document.getElementById("currency-name")
+
+    if (currencySelect.value == "dolar") {
+        currencyName.innerHTML == "dolar americano"
     }
 
-currencySelect.addEventListener("change, changeCurrency")
+    if (currencySelect.value == "euro") {
+        currencyName.innerHTML == "euro"
+    }
+}
+
+currencySelect.addEventListener("change", changeCurrency)
